@@ -69,9 +69,7 @@ while True:
     
   
   if event == 'Preço':
-        especialPeq = peq + 8
-        especialMed = med + 8
-        especialGran = gran + 8
+   
         if not values[1]:
             sg.PopupTimed('Nenhum tamanho foi selecionado!', auto_close_duration=1)
             
