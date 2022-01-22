@@ -1,10 +1,15 @@
-import PySimpleGUI as sg
+# import PySimpleGUI as sg
+import pandas as pd
 from pycep_correios import get_address_from_cep, WebService, exceptions
+
+valores = [10, 10, 20, 30]
+valores_serie = pd.Series(valores)
+valores_serie
 
 
 
 layout = [
-  [sg.Listbox(values=['Queijo', 'Calabresa', 'Portuguesa', 'Toscana', 'Marguerita', 'Brigadeiro', 'Especial'], size=(20, 6), select_mode=sg.LISTBOX_SELECT_MODE_MULTIPLE), sg.Listbox(['Pequena', 'Média', 'Grande'], size=(9, 3)), sg.Text(' '*4), sg.Text('Cupom: '), sg.InputText(size=(25,10)), sg.Button('Verificar', key='cupomBotao')],
+  [sg.Listbox(values=['Queijo', 'Calabresa', 'Portuguesa', 'Toscana', 'Marguerita', 'Brigadeiro', 'Especial'], size=(20, 6), select_mode=sg.LISTBOX_SELECT_MODE_MULTIPLE), sg.Listbox(['Pequena', 'Média', 'Grande'], size=(10, 3)), sg.Text(' '*4), sg.Text('Cupom: '), sg.InputText(size=(25,10)), sg.Button('Verificar', key='cupomBotao')],
   [sg.Text(' '*73), sg.Text('CEP: '), sg.InputText(size=(25,10)), sg.Button('Verificar', key='verificar')],
   [sg.Slider(orientation='horizontal'), sg.Text(' '*18), sg.Text('Endereço: '), sg.InputText(key='endereço', size=(25,10))],
   [sg.Text(' '*71), sg.Text('Bairro: '), sg.InputText(key='bairro', size=(25,10))],
@@ -18,46 +23,46 @@ window = sg.Window('Pizzaria', layout, size=(630, 260), resizable=True)
 
 while True:
   
-  event, values = window.read()
+  event, valores = window.read()
  
-  peq = 14.99 * values[4]
-  med = 24.99 * values[4]
-  gran = 39.99 * values[4]
+  peq = 14.99 * valores[4]
+  med = 24.99 * valores[4]
+  gran = 39.99 * valores[4]
     
   def multiplePequena(x):
-    if len(values[0]) > x:
-        window.find_element('preço').Update('R${:.2f}'.format(peq * len(values[0])))
+    if len(valores[0]) > x:
+        window.find_element('preço').Update('R${:.2f}'.format(peq * len(valores[0])))
     else:
         window.find_element('preço').Update('R${:.2f}'.format(peq))
         
   def multipleMedia(x):
-    if len(values[0]) > x:
-        window.find_element('preço').Update('R${:.2f}'.format(med * len(values[0])))
+    if len(valores[0]) > x:
+        window.find_element('preço').Update('R${:.2f}'.format(med * len(valores[0])))
     else:
         window.find_element('preço').Update('R${:.2f}'.format(med))
         
   def multipleGrande(x):
-    if len(values[0]) > x:
-        window.find_element('preço').Update('R${:.2f}'.format(gran * len(values[0])))
+    if len(valores[0]) > x:
+        window.find_element('preço').Update('R${:.2f}'.format(gran * len(valores[0])))
     else:
         window.find_element('preço').Update('R${:.2f}'.format(gran))
         
              
   def descontoPequena(x):
-    if len(values[0]) > x:
-        window.find_element('preço').Update('R${:.2f}'.format((peq * len(values[0]))* 0.85))
+    if len(valores[0]) > x:
+        window.find_element('preço').Update('R${:.2f}'.format((peq * len(valores[0]))* 0.85))
     else:
         window.find_element('preço').Update('R${:.2f}'.format(peq * 0.85))
         
   def descontoMedia(x):
-    if len(values[0]) > x:
-        window.find_element('preço').Update('R${:.2f}'.format((med * len(values[0]))* 0.85))
+    if len(valores[0]) > x:
+        window.find_element('preço').Update('R${:.2f}'.format((med * len(valores[0]))* 0.85))
     else:
         window.find_element('preço').Update('R${:.2f}'.format(med * 0.85))
         
   def descontoGrande(x):
-    if len(values[0]) > x:
-        window.find_element('preço').Update('R${:.2f}'.format((gran * len(values[0]))* 0.85))
+    if len(valores[0]) > x:
+        window.find_element('preço').Update('R${:.2f}'.format((gran * len(valores[0]))* 0.85))
     else:
         window.find_element('preço').Update('R${:.2f}'.format(gran * 0.85))
 
@@ -69,22 +74,24 @@ while True:
     
   
   if event == 'Preço':
-   
-        if not values[1]:
+
+        if not valores[1]:
             sg.PopupTimed('Nenhum tamanho foi selecionado!', auto_close_duration=1)
+            window.find_element('preço').Update('R$0.00')
             
-        if not values[0]:
+        if not valores[0]:
             sg.PopupTimed('Nenhuma pizza foi selecionada!', auto_close_duration=1)
+            window.find_element('preço').Update('R$0.00')
             
         else:
             
-            if 'Pequena' in values[1]:
+            if 'Pequena' in valores[1]:
                 multiplePequena(1)
 
-            elif 'Média' in values[1]:
+            elif 'Média' in valores[1]:
                 multipleMedia(1)
 
-            elif 'Grande' in values[1]:
+            elif 'Grande' in valores[1]:
                 multipleGrande(1)
             
 
@@ -92,7 +99,7 @@ while True:
   if event == 'verificar':
         try:
             
-            endereço = get_address_from_cep(values[3], webservice=WebService.APICEP)
+            endereço = get_address_from_cep(valores[3], webservice=WebService.APICEP)
             avenida = list(endereço.values())[3]
             bairro = list(endereço.values())[0]
             window.find_element('endereço').Update(avenida)
@@ -102,19 +109,19 @@ while True:
             sg.PopupTimed('CEP inválido!', auto_close_duration=1)
         
   if event == 'cupomBotao':
-        if 'DOCA10' in values[2]:
+        if 'DOCA10' in valores[2]:
             sg.PopupTimed('Cupom Válido!', auto_close_duration=1)
                        
-            if 'Pequena' in values[1]:
+            if 'Pequena' in valores[1]:
                 descontoPequena(1)
         
-            elif 'Média' in values[1]:
+            elif 'Média' in valores[1]:
                 descontoMedia(1)
-                #window.find_element('preço').Update('R${:.2f}'.format(med * 0.85))
         
-            elif 'Grande' in values[1]:
+        
+            elif 'Grande' in valores[1]:
                 descontoGrande(1)
-                #window.find_element('preço').Update('R${:.2f}'.format(gran * 0.85))
+                
             
             
         else:
@@ -123,7 +130,48 @@ while True:
             
             
   if event == 'pedido':
-        pass
+        if not valores[1]:
+            sg.PopupTimed('Nenhum tamanho foi selecionado!', auto_close_duration=1)
+            
+        else:
+        
+            if len(valores[0]) == 1:   
+                pizza_1 = pd.Series({'Sabor': f'{valores[0][0]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                df = pd.DataFrame([pizza_1])
+                print(df)
+
+            elif len(valores[0]) == 2:
+                pizza_1 = pd.Series({'Sabor': f'{valores[0][0]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_2 = pd.Series({'Sabor': f'{valores[0][1]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                df = pd.DataFrame([pizza_1, pizza_2])
+                print(df)
+
+            elif len(valores[0]) == 3:
+                pizza_1 = pd.Series({'Sabor': f'{valores[0][0]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_2 = pd.Series({'Sabor': f'{valores[0][1]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_3 = pd.Series({'Sabor': f'{valores[0][2]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})      
+                df = pd.DataFrame([pizza_1, pizza_2, pizza_3])
+                print(df)
+
+            elif len(valores[0]) == 4:
+                pizza_1 = pd.Series({'Sabor': f'{valores[0][0]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_2 = pd.Series({'Sabor': f'{valores[0][1]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_3 = pd.Series({'Sabor': f'{valores[0][2]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_4 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                df = pd.DataFrame([pizza_1, pizza_2, pizza_3, pizza_4])
+                print(df)
+
+            elif len(valores[0]) == 5:
+                pizza_1 = pd.Series({'Sabor': f'{valores[0][0]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_2 = pd.Series({'Sabor': f'{valores[0][1]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_3 = pd.Series({'Sabor': f'{valores[0][2]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_4 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_5 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                df = pd.DataFrame([pizza_1, pizza_2, pizza_3, pizza_4, pizza_5])
+                print(df)
+            
+            
+      
     
 
     
