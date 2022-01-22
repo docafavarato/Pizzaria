@@ -2,11 +2,6 @@
 import pandas as pd
 from pycep_correios import get_address_from_cep, WebService, exceptions
 
-valores = [10, 10, 20, 30]
-valores_serie = pd.Series(valores)
-valores_serie
-
-
 
 layout = [
   [sg.Listbox(values=['Queijo', 'Calabresa', 'Portuguesa', 'Toscana', 'Marguerita', 'Brigadeiro', 'Especial'], size=(20, 6), select_mode=sg.LISTBOX_SELECT_MODE_MULTIPLE), sg.Listbox(['Pequena', 'Média', 'Grande'], size=(10, 3)), sg.Text(' '*4), sg.Text('Cupom: '), sg.InputText(size=(25,10)), sg.Button('Verificar', key='cupomBotao')],
