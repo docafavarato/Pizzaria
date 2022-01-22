@@ -164,81 +164,31 @@ while True:
                 pizza_2 = pd.Series({'Sabor': f'{valores[0][1]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
                 pizza_3 = pd.Series({'Sabor': f'{valores[0][2]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
                 pizza_4 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_5 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_5 = pd.Series({'Sabor': f'{valores[0][4]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
                 df = pd.DataFrame([pizza_1, pizza_2, pizza_3, pizza_4, pizza_5])
                 print(df)
                 
-             elif len(valores[0]) == 6:
+            elif len(valores[0]) == 6:
                 pizza_1 = pd.Series({'Sabor': f'{valores[0][0]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
                 pizza_2 = pd.Series({'Sabor': f'{valores[0][1]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
                 pizza_3 = pd.Series({'Sabor': f'{valores[0][2]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
                 pizza_4 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_5 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_6 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_5 = pd.Series({'Sabor': f'{valores[0][4]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_6 = pd.Series({'Sabor': f'{valores[0][5]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
                 df = pd.DataFrame([pizza_1, pizza_2, pizza_3, pizza_4, pizza_5, pizza_6])
                 print(df)
                 
-             elif len(valores[0]) == 7:
+            elif len(valores[0]) == 7:
                 pizza_1 = pd.Series({'Sabor': f'{valores[0][0]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
                 pizza_2 = pd.Series({'Sabor': f'{valores[0][1]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
                 pizza_3 = pd.Series({'Sabor': f'{valores[0][2]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
                 pizza_4 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_5 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_6 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_7 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_5 = pd.Series({'Sabor': f'{valores[0][4]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_6 = pd.Series({'Sabor': f'{valores[0][5]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
+                pizza_7 = pd.Series({'Sabor': f'{valores[0][6]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
                 df = pd.DataFrame([pizza_1, pizza_2, pizza_3, pizza_4, pizza_5, pizza_6, pizza_7])
                 print(df)
                 
-             elif len(valores[0]) == 8:
-                pizza_1 = pd.Series({'Sabor': f'{valores[0][0]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_2 = pd.Series({'Sabor': f'{valores[0][1]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_3 = pd.Series({'Sabor': f'{valores[0][2]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_4 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_5 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_6 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_7 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_8 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                df = pd.DataFrame([pizza_1, pizza_2, pizza_3, pizza_4, pizza_5, pizza_6, pizza_7, pizza_8])
-                print(df)
-                
-             elif len(valores[0]) == 9:
-                pizza_1 = pd.Series({'Sabor': f'{valores[0][0]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_2 = pd.Series({'Sabor': f'{valores[0][1]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_3 = pd.Series({'Sabor': f'{valores[0][2]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_4 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_5 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_6 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_7 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_8 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_9 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                df = pd.DataFrame([pizza_1, pizza_2, pizza_3, pizza_4, pizza_5, pizza_6, pizza_7, pizza_8, pizza_9])
-                print(df)
-                
-              elif len(valores[0]) == 10:
-                pizza_1 = pd.Series({'Sabor': f'{valores[0][0]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_2 = pd.Series({'Sabor': f'{valores[0][1]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_3 = pd.Series({'Sabor': f'{valores[0][2]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_4 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_5 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_6 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_7 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_8 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_9 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                pizza_10 = pd.Series({'Sabor': f'{valores[0][3]}', 'Tamanho': '{}'.format(''.join(valores[1])), 'Qtd': f'{int(valores[4])}'})
-                df = pd.DataFrame([pizza_1, pizza_2, pizza_3, pizza_4, pizza_5, pizza_6, pizza_7, pizza_8, pizza_9, pizza_10])
-                print(df)
-                
-              
-            
-            
-      
-    
-
-    
-        
-
-       
-        
 
   
 
