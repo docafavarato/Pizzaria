@@ -1,7 +1,7 @@
 # Pizzaria
 
 ## About
-> Sistema básico de administração de uma Pizzaria.
+> Sistema básico de vendas de uma Pizzaria.
 
 ## Functions
 > Seleção de múltiplas Pizzas e tamanhos
